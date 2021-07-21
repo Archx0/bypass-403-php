@@ -2,7 +2,6 @@
 			// by omar alahmadi 
     $url = readline("enter URL ex: http://google.com: "); //input for URL
     readline_add_history($url); //save input 
-    $url = "http://52.28.216.196/skiddy/robots.txt.php";
     $Cookie = readline("add Cookie ex : username=test; role=admin : "); //input for cookie
     readline_add_history($Cookie); //save input
     $ch =" ";
