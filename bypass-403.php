@@ -15,13 +15,13 @@
         'X-rewrite-url:127.0.0.1'
     ];
     $methods=[ 
-        CURLOPT_POST,
-        CURLOPT_HTTPGET,
-        CURLOPT_PUT,
-        CURLOPT_CAPATH
+        'POST' => CURLOPT_POST,
+        'GET' => CURLOPT_HTTPGET,
+        'PUT' => CURLOPT_PUT,
+        'CAPTH' => CURLOPT_CAPATH
     ];
 foreach ($bypass as $bypas){
-    foreach ($methods as $method){   
+    foreach ($methods as $key => $method){   
     $ch = curl_init($url);
     curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
     curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
@@ -40,10 +40,10 @@ foreach ($bypass as $bypas){
 
     $pos = strpos($result, 'Forbidden');
     
-    echo "\n trying : "."\033[33m$bypas \033[0m\n";
+    echo "\n trying : ".$key." : \033[33m $bypas \033[0m\n";
     if ($pos != true){
-        echo "\n \033[32m$bypas \033[0m\n";
-        printf("\033[36m$result \033[0m\n");
+        echo "$key \n \033[32m$bypas \033[0m\n";
+        printf("\033[36m $result \033[0m\n");
         curl_close( $ch );
         $status = true;
         }
