@@ -8,8 +8,8 @@
     $status = false;
 
     //  //if you want to test this tool uncomment this two line  below <------------------------------
-    $url = "http://52.28.216.196/skiddy/robots.txt.php";   // <===========
-    $Cookie ="flag=240610708; flag1=QNKCDZO";             // <============
+  //  $url = "http://52.28.216.196/skiddy/robots.txt.php";   // <===========
+   // $Cookie ="flag=240610708; flag1=QNKCDZO";             // <============
     $bypass = [  
         'X-Original-URL:127.0.0.1',
         'Referer:'.$url,
