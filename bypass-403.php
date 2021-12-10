@@ -1,8 +1,8 @@
 <?php
 			// by omar alahmadi 
-    $url = readline("enter URL ex: http://google.com: "); //input for URL
+    $url = readline("enter URL : "); //input for URL
     readline_add_history($url); //save input 
-    $Cookie = readline("add Cookie ex : username=test; role=admin : "); //input for cookie
+    $Cookie = readline("add Cookie ex : username=test; role=admin;  OR enter to skip"); //input for cookie
     readline_add_history($Cookie); //save input
     $ch =" ";
     $status = false;
