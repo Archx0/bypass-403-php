@@ -16,7 +16,8 @@
         'X-Custom-IP-Authorization:127.0.0.1',
         'X-Forwarded-For:127.0.0.1',
         'X-Forwarded-For:http://127.0.0.1',
-        'X-rewrite-url:127.0.0.1'
+        'X-rewrite-url:127.0.0.1',
+	'X-Original-URL:/admin'
     ];
     $methods=[ 
         'POST' => CURLOPT_POST,
