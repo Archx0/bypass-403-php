@@ -49,7 +49,7 @@ foreach ($bypass as $bypas){
     
     echo "\n trying : ".$key." : \033[33m $bypas \033[0m\n";
     if ($pos != True){
-        echo " \n \n found method : $key  \033[32m$bypas \033[0m\n";
+        echo " \n \n found method : $key  and Request header : \033[32m$bypas \033[0m\n";
         printf("\033[36m $result \033[0m\n");
         curl_close( $ch );
         $status = true;
