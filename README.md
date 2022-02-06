@@ -11,7 +11,7 @@ requarment
 ```bash
 sudo apt install php php-curl
 ```
-strat up 
+start up 
 ```bash
 sudo chmod +x bypass-403-php
 ```
