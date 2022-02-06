@@ -3,7 +3,7 @@
 
 How to use it ? 
 
-instlation
+installation
 ```bash
 git clone https://github.com/keenv1/bypass-403-php.git && cd bypass-403-php
 ```
