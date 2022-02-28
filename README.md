@@ -18,3 +18,4 @@ sudo chmod +x bypass-403-php
 ```bash
 php bypass-403-php 
 ```
+<img src="Screenshot_20220228_123648.png" alt="result">
